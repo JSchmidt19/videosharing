@@ -1,0 +1,16 @@
+<h1>Users</h1>
+<div class="mainPart">
+  
+
+<table>
+<tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td>User #<%= user.user_id %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+ </div>

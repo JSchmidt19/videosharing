@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+    
+<style>
+  
+
+    div.myHeader{
+        
+        text-align: center;
+        margin-top: 30px;
+
+    }
+    
+    
+    a.tablinks {
+        opacity: .9;
+        border: outset;
+        
+        border-color: #0000FF;
+        text-decoration: none;
+        padding: 7px 16px;
+        width: 100px;
+        text-align: center;
+        display: inline-block;
+        font-size: 20px;
+        font-family: Georgia, serif;
+        font-weight:bold;
+        color: #2222FF;
+        background-color: #8888FF;
+        
+        
+        -webkit-animation: background-color .3s;
+        -moz-animation:    background-color .3s;
+        -ms-animation:     background-color .3s;
+        -o-animation:      background-color .3s;
+        animation:         background-color .3s;
+        
+    }
+    
+    
+    body {
+        background-image: url("https://i.imgur.com/6LLOPo0.jpg");
+        background-size: cover;
+        background-repeat: no-repeat; 
+        background-attachment: fixed;
+        background-position: center;
+        opacity: .9;
+        -webkit-transition: background-image .3s;
+        -moz-transition:    background-image .3s;
+        -ms-transition:     background-image .3s;
+        -o-transition:      background-image .3s;
+        transition:         background-image .3s;
+    }
+    
+    div.main {
+        text-align: center;
+        background-color: #8888FF;
+        width: 80%;
+        margin: auto;
+        margin-bottom: 75%;
+        margin-top: 10px;
+        padding: 20px;
+        opacity: .6;
+        font-weight:bold;
+        
+    }
+    div.tabCtrl {
+        width = 80%;
+        opacity: .65;
+        /*  This didn't work, much to my dismay.
+        background-image: url("https://i.imgur.com/btQz4It.png");
+        background-size: 80%, 10%;
+        background-position: center;
+        background-repeat: no-repeat; 
+        
+
+        -webkit-transition: background-image .3s;
+        -moz-transition:    background-image .3s;
+        -ms-transition:     background-image .3s;
+        -o-transition:      background-image .3s;
+        transition:         background-image .3s;
+        */
+    }
+  
+  div.mainPart {
+    display: inline-block;
+    text-align: center;
+    background: rgba(255, 255, 255, 1);
+    padding: 20px;
+    font-weight:bold;
+  }
+
+</style>
+    
+<script type="text/javascript"> 
+    //apparently you'd have to put the ruby code somewhere else
+    //but javascript can always be used right in the html with no problems
+
+  function activateTab(tabID) {
+      var ids = ["tab1", "tab2", "tab3", "tab4", "tab5", "tab6", "tab7"]
+      var linkIDs = ["tabLink1", "tabLink2", "tabLink3", "tabLink4", "tabLink5", "tabLink6", "tabLink7"]
+      var backColors = ['#8888FF', "#FF8888", "#44BB44", "#DD66DD", "#66DDDD", "#FFFF66", "#EEAA44"];
+      var borderColors = ["#2222FF", "#FF2222", "#00DD00", "#FF22FF", "#22FFFF", "#FFFF22", "#FFAA00"];
+      var colors = ["#0000FF", "#FF0000", "#009900", "#BB00BB", "#CCFFFF", "#BBBB00", "#AA7700"];
+      var images = ["https://i.imgur.com/6LLOPo0.jpg", 
+                    "https://i.imgur.com/Rwww4sn.jpg", 
+                    "https://i.imgur.com/Tk5O0Xl.jpg", 
+                    "https://i.imgur.com/fGreWmJ.jpg", 
+                    "https://i.imgur.com/IDMITUR.jpg", 
+                    "https://i.imgur.com/Mmrfdms.jpg", 
+                    "https://i.imgur.com/l8vZceV.jpg"];
+      /*
+      var headImages =["https://i.imgur.com/btQz4It.png",
+                      "https://image.ibb.co/exizg5/redSilk2.png",
+                      "https://i.imgur.com/R53qyj5.png",
+                      "https://image.ibb.co/ebybTk/purple_Silk2.png",
+                      "https://i.imgur.com/UWuqta6.png",
+                      "https://i.imgur.com/hOtu9X0.png",
+                      "https://i.imgur.com/7BjHeO6.png"];
+      
+      document.getElementById("headerImage").src = headImages[parseInt(tabID, 10) - 1];
+      */
+      for (var i = 0; i < colors.length; i ++){
+          
+          document.getElementById(ids[i]).style.display = "none";
+          
+          
+          document.getElementById(linkIDs[i]).style.backgroundColor = backColors[parseInt(tabID, 10) - 1];
+          
+          document.getElementById(linkIDs[i]).style.color = colors[parseInt(tabID, 10) - 1];
+          
+          document.getElementById(linkIDs[i]).style.borderColor = borderColors[parseInt(tabID, 10) - 1];
+          
+      }
+      
+      document.getElementById(ids[(parseInt(tabID, 10) - 1)]).style.display = "block";
+      
+      
+      document.getElementById("mainThing").style.backgroundColor = backColors[parseInt(tabID, 10) - 1];
+      document.getElementById("headerThing").style.backgroundImage = "url(" + images[parseInt(tabID, 10) - 1] + ")";
+    /*
+      var mains = document.getElementsByClassName("mainPart");
+      for (var i = 0; i < mains.length; i ++){
+        mains[i].style.background = "#ff" + colors[parseInt(tabID, 10) - 1].substring(1);
+      }
+      */
+      
+      
+  }
+
+</script>
+   
+    
+
+<body id="headerThing">
+    
+    <div class="myHeader" >
+        <div class="tabCtrl"  >
+            <div id="tab1" style="display: block" class="tabCtrl">
+            <img src="https://i.imgur.com/btQz4It.png" width="80%" height="175">
+                
+            </div>
+            <div id="tab2" style="display: none" class="tabCtrl">
+            <img src="https://image.ibb.co/exizg5/redSilk2.png" width="80%" height="175">
+                
+            </div>
+            <div id="tab3" style="display: none" class="tabCtrl">
+            <img src="https://i.imgur.com/R53qyj5.png" width="80%" height="175">
+                
+            </div>
+            <div id="tab4" style="display: none" class="tabCtrl">
+            <img src="https://image.ibb.co/ebybTk/purple_Silk2.png" width="80%" height="175">
+                
+            </div>
+            <div id="tab5" style="display: none" class="tabCtrl">
+            <img src="https://i.imgur.com/UWuqta6.png" width="80%" height="175">
+                
+            </div>
+            <div id="tab6" style="display: none" class="tabCtrl">
+            <img src="https://i.imgur.com/hOtu9X0.png" width="80%" height="175">
+                
+            </div>
+            <div id="tab7" style="display: none" class="tabCtrl">
+            <img src="https://i.imgur.com/7BjHeO6.png" width="80%" height="175">
+
+            </div>
+            
+        </div>
+        <div class="tab">
+            <a id="tabLink1" class="tablinks" href="javascript:activateTab('1')">Dragon</a>
+            <a id="tabLink2" class="tablinks" href="javascript:activateTab('2')">Volcano</a>
+            <a id="tabLink3" class="tablinks" href="javascript:activateTab('3')">Forest</a>
+            <a id="tabLink4" class="tablinks" href="javascript:activateTab('4')">Celestial</a>
+            <a id="tabLink5" class="tablinks" href="javascript:activateTab('5')">Ice</a>
+            <a id="tabLink6" class="tablinks" href="javascript:activateTab('6')">Desert</a>
+            <a id="tabLink7" class="tablinks" href="javascript:activateTab('7')">Sunset</a>
+        </div>
+    </div> 
+    <div class="main" id="mainThing">
+        <%= yield %>
+    </div>
+    <div style="text-align: center; font-weight: bold; margin: 10px; color: #DDD">
+      Enjoy the picture? :)  
+    </div>
+
+</body>
+</html>
